@@ -18,7 +18,7 @@ if (urlAppend.length == 0) {
 }
 
 if (urlAppend === "?doc=1") {
-  let xmlHTTP = new XMLHttpRequest();
+  let xmlHttp = new XMLHttpRequest();
   xmlHttp.open("GET", "https://raw.githubusercontent.com/aprashar10/aprashar10.github.io/main/exampleJSON.txt", false);
   document.getElementByID("test").innerHTML = xmlHttp.responseText;
 
