@@ -9,13 +9,17 @@ let urlAppend = window.location.href;
 urlAppend = urlAppend.split("github.io/").pop();
 
 
+// If there is more 
 // Update the <p> element with this portion of the string
-document.getElementById("test").innerHTML = urlAppend;
-
-
 if (urlAppend.length == 0) {
-  console.log(":(")
+  document.getElementById("test").innerHTML = "Try this URL: aprashar10.github.io/doc=1;
 } else {
-  console.log(":)")
+  document.getElementById("test").innerHTML = urlAppend;
 }
 
+if (urlAppend === "doc=1") {
+  let xmlHTTP = new XMLHttpRequest();
+  xmlHttp.open("GET", "https://raw.githubusercontent.com/aprashar10/aprashar10.github.io/main/exampleJSON.txt", false);
+  document.getElementByID("test").innerHTML = xmlHttp.responseText;
+
+}
