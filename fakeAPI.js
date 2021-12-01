@@ -31,7 +31,7 @@ function makeRequest(url, callback) {
 }
 
 
-let selector = document.getElementByID("SelectElement");
+let selector = document.getElementById("SelectElement");
 
 
 // Get the current URL
