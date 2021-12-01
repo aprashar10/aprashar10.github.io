@@ -12,7 +12,7 @@ urlAppend = urlAppend.split("github.io/").pop();
 // If there is more 
 // Update the <p> element with this portion of the string
 if (urlAppend.length == 0) {
-  document.getElementById("test").innerHTML = "Try this URL: aprashar10.github.io/doc=1;
+  document.getElementById("test").innerHTML = "Try this URL: aprashar10.github.io/doc=1";
 } else {
   document.getElementById("test").innerHTML = urlAppend;
 }
