@@ -45,7 +45,7 @@ urlAppend = urlAppend.split("github.io/").pop();
 // If there is more 
 // Update the <p> element with this portion of the string
 if (urlAppend.length == 0) {
-  document.getElementById("test").innerHTML = '<p id = "test">Try this URL: <a href = "aprashar10.github.io/?doc=1">aprashar10.github.io/?doc=1</a></p>';
+  document.getElementById("test").innerHTML = '<p id = "test">Try this URL: <a href = "https://aprashar10.github.io/?doc=1">aprashar10.github.io/?doc=1</a></p>';
 } else {
   document.getElementById("test").textContent = urlAppend;
 }
