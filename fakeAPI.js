@@ -31,6 +31,8 @@ function makeRequest(url, callback) {
 }
 
 
+let selector = document.getElementByID("SelectElement");
+
 
 // Get the current URL
 let urlAppend = window.location.href;
@@ -43,9 +45,9 @@ urlAppend = urlAppend.split("github.io/").pop();
 // If there is more 
 // Update the <p> element with this portion of the string
 if (urlAppend.length == 0) {
-  document.getElementById("test").innerHTML = "Try this URL: aprashar10.github.io/?doc=1";
+  document.getElementById("test").innerHTML = '<p id = "test">Try this URL: <a href = "aprashar10.github.io/?doc=1">aprashar10.github.io/?doc=1</a></p>';
 } else {
-  document.getElementById("test").innerHTML = urlAppend;
+  document.getElementById("test").textContent = urlAppend;
 }
 
 if (urlAppend === "?doc=1") {
@@ -58,4 +60,28 @@ if (urlAppend === "?doc=1") {
 
   makeRequest("https://raw.githubusercontent.com/aprashar10/aprashar10.github.io/main/exampleJSON.txt", myFunc);
 
+}
+
+
+if (document.getElementById("test").textContent.includes("Pikachu")) {
+
+  console.log("Hi!");
+
+  let parsedJSON = JSON.parse(document.getElementById("test").textContent);
+
+  selector.style.display = "";
+
+  for (let i = 0; i < Object.keys(parsedJSON).length; ++i) {
+    let opt = document.createElement('option');
+    opt.value = Object.keys(parsedJSON)[i];
+    opt.innerHTML = opt.value;
+    selector.appendChild(opt);
+  }
+
+}
+
+
+
+if (selector.value != '') {
+  document.getElementByID("hi").textContent = parsedJSON[Object.keys(parsedJSON)[selector.selectedIndex]];
 }

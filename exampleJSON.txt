@@ -1,5 +1,3 @@
-{
-"today": "Wednesday",
+{"today": "Wednesday",
 "thebest": "Pikachu",
-"number": 10
-}
+"number": 10}
