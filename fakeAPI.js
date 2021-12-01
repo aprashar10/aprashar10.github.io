@@ -1,6 +1,26 @@
 "use strict";
 
 
+function makeRequest(url, callback) {
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", url, true);
+
+  xhr.onload = function() {
+    let responseStr = xhr.responseText;
+    
+    console.log(responseStr);
+
+    callback(responseStr);
+
+  }
+
+  xhr.send();
+
+}
+
+
+
 // Get the current URL
 let urlAppend = window.location.href;
 
@@ -18,8 +38,13 @@ if (urlAppend.length == 0) {
 }
 
 if (urlAppend === "?doc=1") {
-  let xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("GET", "https://raw.githubusercontent.com/aprashar10/aprashar10.github.io/main/exampleJSON.txt", false);
-  document.getElementByID("test").innerHTML = xmlHttp.responseText;
+
+  console.log("Hello!")  
+
+  myFunc = function (myStr) {
+    document.getElementById("test").innerHTML = myStr;
+  }
+
+  makeRequest("https://raw.githubusercontent.com/aprashar10/aprashar10.github.io/main/exampleJSON.txt", myFunc);
 
 }
