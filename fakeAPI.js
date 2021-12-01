@@ -6,7 +6,18 @@ function makeRequest(url, callback) {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
 
+  if (!xhr) {
+    alert('CORS not supported');
+    return;
+  }
+
   xhr.onload = function() {
+
+    if (xhr.status >= 400) {
+      alert('The request could not be fulfilled');
+      return;
+    }
+
     let responseStr = xhr.responseText;
     
     console.log(responseStr);
