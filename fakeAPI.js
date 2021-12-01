@@ -1,4 +1,11 @@
 "use strict";
 
+let urlAppend = window.location.href;
 
-document.getElementById("test").innerHTML = window.location.href;
+urlAppend = urlAppend.split("github.io").pop();
+
+
+document.getElementById("test").innerHTML = urlAppend;
+
+
+
