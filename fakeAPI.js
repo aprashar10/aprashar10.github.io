@@ -52,9 +52,9 @@ if (urlAppend === "?doc=1") {
 
   console.log("Hello!")  
 
-  myFunc = function (myStr) {
+  let myFunc = function (myStr) {
     document.getElementById("test").innerHTML = myStr;
-  }
+  };
 
   makeRequest("https://raw.githubusercontent.com/aprashar10/aprashar10.github.io/main/exampleJSON.txt", myFunc);
 
