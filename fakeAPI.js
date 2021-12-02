@@ -31,7 +31,36 @@ function makeRequest(url, callback) {
 }
 
 
-let selector = document.getElementById("SelectElement");
+function unveilSelect() {
+
+  let selector = document.getElementById("SelectElement");
+
+  console.log("Hi!");
+
+  let parsedJSON = JSON.parse(document.getElementById("test").textContent);
+
+  selector.style.display = "";
+
+  for (let i = 0; i < Object.keys(parsedJSON).length; ++i) {
+    let opt = document.createElement('option');
+    opt.value = Object.keys(parsedJSON)[i];
+    opt.innerHTML = opt.value;
+    selector.appendChild(opt);
+  }
+
+  return;
+
+}
+
+
+function updateP() {
+
+  let selector = document.getElementById("SelectElement");
+  let parsedJSON = JSON.parse(document.getElementById("test").textContent);
+
+  document.getElementByID("hi").textContent = parsedJSON[Object.keys(parsedJSON)[selector.selectedIndex]];
+
+}
 
 
 // Get the current URL
@@ -56,32 +85,10 @@ if (urlAppend === "?doc=1") {
 
   let myFunc = function (myStr) {
     document.getElementById("test").innerHTML = myStr;
+    unveilSelect();
   };
 
   makeRequest("https://raw.githubusercontent.com/aprashar10/aprashar10.github.io/main/exampleJSON.txt", myFunc);
 
 }
 
-
-if (document.getElementById("test").textContent.includes("Pikachu")) {
-
-  console.log("Hi!");
-
-  let parsedJSON = JSON.parse(document.getElementById("test").textContent);
-
-  selector.style.display = "";
-
-  for (let i = 0; i < Object.keys(parsedJSON).length; ++i) {
-    let opt = document.createElement('option');
-    opt.value = Object.keys(parsedJSON)[i];
-    opt.innerHTML = opt.value;
-    selector.appendChild(opt);
-  }
-
-}
-
-
-
-if (selector.value != '') {
-  document.getElementByID("hi").textContent = parsedJSON[Object.keys(parsedJSON)[selector.selectedIndex]];
-}
