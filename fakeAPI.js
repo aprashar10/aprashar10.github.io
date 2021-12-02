@@ -39,7 +39,7 @@ function unveilSelect() {
 
   let parsedJSON = JSON.parse(document.getElementById("test").textContent);
 
-  selector.style.display = "";
+  selector.style.display = "block";
 
   for (let i = 0; i < Object.keys(parsedJSON).length; ++i) {
     let opt = document.createElement('option');
@@ -47,6 +47,8 @@ function unveilSelect() {
     opt.innerHTML = opt.value;
     selector.appendChild(opt);
   }
+
+  updateP();
 
   return;
 
@@ -58,7 +60,7 @@ function updateP() {
   let selector = document.getElementById("SelectElement");
   let parsedJSON = JSON.parse(document.getElementById("test").textContent);
 
-  document.getElementByID("hi").textContent = parsedJSON[Object.keys(parsedJSON)[selector.selectedIndex]];
+  document.getElementById("hi").textContent = parsedJSON[Object.keys(parsedJSON)[selector.selectedIndex]];
 
 }
 
